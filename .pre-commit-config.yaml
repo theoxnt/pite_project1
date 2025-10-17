@@ -1,0 +1,31 @@
+## .pre-commit-config.yaml (Pre-commit hooks)
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.6.0
+    hooks:
+
+      - id: trailing-whitespace        # removes stray spaces at line ends
+      - id: end-of-file-fixer          # ensures files end with a single newline
+      - id: check-merge-conflict       # rejects <<< >>> conflict markers
+      - id: check-yaml                 # validates .yml/.yaml syntax
+      - id: check-toml                 # validates .toml syntax
+      - id: detect-private-key         # blocks committing private keys
+
+  - repo: https://github.com/psf/black
+    rev: 24.8.0
+    hooks:
+      - id: black
+        args: ["--line-length=100"]
+
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.6.8
+    hooks:
+      - id: ruff
+        args: ["--fix"]
+
+  - repo: https://github.com/pre-commit/mirrors-mypy
+    rev: v1.11.2
+    hooks:
+      - id: mypy
+        additional_dependencies: ["types-requests"]
+        args: ["--strict", "src"]

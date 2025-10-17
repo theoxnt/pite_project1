@@ -3,7 +3,7 @@ import os
 from pathlib import Path
 import json
 from typing import Any
-from config import Config
+from pite_project1.config import Config
 
 Record = dict[str, Any]
 

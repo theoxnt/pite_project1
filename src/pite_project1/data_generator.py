@@ -1,6 +1,6 @@
 import json
 import random
-from io_ import dump_json
+from pite_project1.io_ import dump_json
 
 # Generate 100 records with random status and value
 records = []
