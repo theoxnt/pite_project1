@@ -39,7 +39,9 @@ def filter_ok(records: Iterable[dict], *, threshold: float = 0) -> list[dict]:
             continue
         status = r.get("status", r.get("STATUS", "")).lower()
         if status == "ok":
-            val = _coerce_value(r.get("value", 0))
+            val = r.get("value", 0)
+            if isinstance(val, str): 
+                val = _coerce_value(val)
             if val >= threshold:
                 out.append({"status": "ok", "value": val})
     return out

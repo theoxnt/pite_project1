@@ -1,9 +1,8 @@
-# tests/test_usefullFunctions.py
 import pytest
 from pite_project1.usefullFunctions import _coerce_value, filter_ok, compute
 
 # -------------------------
-# Tests pour _coerce_value
+# Tests for _coerce_value
 # -------------------------
 def test_coerce_value_int():
     assert _coerce_value("3") == 3
@@ -21,7 +20,7 @@ def test_coerce_value_invalid():
     assert _coerce_value([]) == 0
 
 # -------------------------
-# Tests pour filter_ok
+# Tests for filter_ok
 # -------------------------
 def test_filter_ok_basic():
     data = [
@@ -46,7 +45,7 @@ def test_filter_ok_empty_and_malformed():
     assert filtered[0]["value"] == 0  # missing value defaults to 0
 
 # -------------------------
-# Tests pour compute
+# Tests for compute
 # -------------------------
 def test_compute_basic():
     items = [{"value": 2}, {"value": 4}, {"value": 6}]

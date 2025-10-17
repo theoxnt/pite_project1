@@ -1,4 +1,3 @@
-# tests/test_cli.py
 import sys
 import pytest
 from pite_project1.cli import get_parser
