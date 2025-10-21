@@ -1,6 +1,9 @@
 # pite_project1
 
-This project reads data from a JSON file, applies a filter to it and then computes new data from it (average, sum, length). 
+This project reads data from a JSON file, it applies a filter to it and then computes new data from it (average, sum, length). 
+
+Detailed description : <br>
+The JSON file represents a list of dictionaries. In each dictionary there are two keys. The first one is the status (ok, bad or error). The second one is the value (int, float or str). The filter function keeps only the value that are greater than a threshold. Then a function computes the average and the sum of all the values left and to determine how many values are left. 
 
 ## Installation
 
@@ -24,6 +27,12 @@ Optional arguments :<br>
     --file "path_for_the_file" # indicate the path for the data file<br>
     --all<br> 
     --thres # the filter will use this threshold to only keep values better than it<br>
+
+If you want to generate values, execute : 
+```bash
+python src.pite_project1.data_generator
+```
+It creates a file of data at the path /mnt/data/sample_100.json <br>
 
 ## Project structure 
 
