@@ -29,22 +29,24 @@ Optional arguments :<br>
 
 Project structure:
 
+```text
 pite_project1/
 ├── src/pite_project1/
 │   ├── __init__.py
-│   ├── cli.py             # command line treatment
-│   ├── config.py          # Data class for the config
-│   ├── core.py            # Main function: entry point
-│   ├── data_generator.py  # generate data if we don't have it
-│   ├── io_.py             # functions to read/write files
-│   └── usefullFunctions.py # helper functions for core.py
+│   ├── cli.py               # command line treatment
+│   ├── config.py            # Data class for the config
+│   ├── core.py              # Main function: entry point
+│   ├── data_generator.py    # generate data if we don't have it
+│   ├── io_.py               # functions to read/write files
+│   └── usefulFunctions.py   # helper functions for core.py
 ├── tests/
 │   ├── conftest.py
 │   ├── test_cli.py
 │   ├── test_core.py
-│   └── usefullFunctionsTests.py
+│   └── usefulFunctionsTests.py
 ├── LICENSE
 └── setup.py
+
 
 
 ## Output example 
