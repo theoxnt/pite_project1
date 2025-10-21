@@ -1,6 +1,5 @@
-import json
 import random
-from pite_project1.io_ import dump_json
+from src.pite_project1.usefullFunctions import save
 
 # Generate 100 records with random status and value
 records = []
@@ -19,7 +18,5 @@ for i in range(100):
     records.append({"status": status, "value": value})
 
 # Save to file
-output_path = "/mnt/data/sample_100.json"
-dump_json(output_path, records)
-
+save("data/sample_100.json", records)
 

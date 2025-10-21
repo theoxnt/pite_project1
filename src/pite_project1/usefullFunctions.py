@@ -1,4 +1,6 @@
 from typing import Iterable
+from pathlib import Path
+from src.pite_project1.io_ import dump_json
 
 
 def _coerce_value(value) -> float:
@@ -42,6 +44,8 @@ def filter_ok(records: Iterable[dict], *, threshold: float = 0) -> list[dict]:
             val = r.get("value", 0)
             if isinstance(val, str): 
                 val = _coerce_value(val)
+            elif val is None: 
+                val = 0
             if val >= threshold:
                 out.append({"status": "ok", "value": val})
     return out
@@ -69,3 +73,24 @@ def compute(items):
     s = sum(acc)  
     avg = (s / len(acc)) if acc else 0
     return {"count":len(items),"sum":s,"avg":avg}
+
+def save(path: str, records: list[dict]) -> None:
+    """
+    Save records to a JSON file at the specified path.
+
+    Args: 
+        path (str): The file path where the records should be saved.
+        records (list[dict]): The list of records to save.
+
+    Returns:
+        None
+    """
+
+    BASE_DIR = Path(__file__).resolve().parent.parent.parent
+    output_path = BASE_DIR / "data/sample_100.json" 
+    path = Path(output_path)
+    if path.exists():
+        dump_json(output_path, records)
+    else : 
+        path.parent.mkdir(parents=True, exist_ok=True)
+        dump_json(output_path, records)
