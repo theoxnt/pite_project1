@@ -1,8 +1,8 @@
 from datetime import datetime
-from pite_project1.usefullFunctions import filter_ok, compute
-from pite_project1.io_ import load_json, load_config
-from pite_project1.config import Config
-from pite_project1.cli import get_parser
+from src.pite_project1.usefullFunctions import filter_ok, compute
+from src.pite_project1.io_ import load_json, load_config
+from src.pite_project1.config import Config
+from src.pite_project1.cli import get_parser
 import logging
 
 def main(display = True):
