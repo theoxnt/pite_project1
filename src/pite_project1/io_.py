@@ -22,7 +22,7 @@ def load_json(path: str | Path, encoding: str = "utf-8") -> list[Record]:
 def dump_json(path: str | Path, records: list[Record], encoding: str = "utf-8") -> None:
     Path(path).write_text(json.dumps(records, ensure_ascii=False, indent=2), encoding=encoding)
 
-def load_config(path: str = "config.json") -> Config:
+def load_config(path: str) -> Config:
     if os.path.exists(path):
         data = json.loads(Path(path).read_text())
         return Config(

@@ -1,5 +1,4 @@
 import sys
-import pytest
 from pite_project1.cli import get_parser
 
 def test_parser_file_argument(monkeypatch):

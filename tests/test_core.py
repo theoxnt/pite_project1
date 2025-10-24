@@ -1,17 +1,15 @@
 # tests/test_core.py
-import pytest
 from unittest.mock import patch, MagicMock
-from pite_project1.core import main 
+from src.pite_project1.core import main 
 
 def test_main_default(monkeypatch):
     # Simulate sys.argv without arguments
     monkeypatch.setattr("sys.argv", ["prog"])
 
     # Mock load_config et load_json
-    with patch("core.load_config") as mock_load_config, \
-         patch("core.load_json") as mock_load_json, \
-         patch("core.Config") as mock_config:
-
+    with patch("src.pite_project1.core.load_config") as mock_load_config, \
+         patch("src.pite_project1.core.load_json") as mock_load_json:
+        
         # Default configuration
         mock_conf = MagicMock()
         mock_conf.path = "default.json"
@@ -38,10 +36,9 @@ def test_main_default(monkeypatch):
 def test_main_with_file_and_threshold(monkeypatch):
     monkeypatch.setattr("sys.argv", ["prog", "--file", "myfile.json", "--thres", "5"])
 
-    with patch("core.load_config") as mock_load_config, \
-         patch("core.load_json") as mock_load_json, \
-         patch("core.Config") as mock_config:
-
+    with patch("src.pite_project1.core.load_config") as mock_load_config, \
+         patch("src.pite_project1.core.load_json") as mock_load_json:
+        
         mock_conf = MagicMock()
         mock_conf.path = "default.json"
         mock_conf.encoding = "utf-8"
@@ -67,10 +64,9 @@ def test_main_with_file_and_threshold(monkeypatch):
 def test_main_with_all_flag(monkeypatch):
     monkeypatch.setattr("sys.argv", ["prog", "--all"])
 
-    with patch("core.load_config") as mock_load_config, \
-         patch("core.load_json") as mock_load_json, \
-         patch("core.Config") as mock_config:
-
+    with patch("src.pite_project1.core.load_config") as mock_load_config, \
+         patch("src.pite_project1.core.load_json") as mock_load_json:
+        
         mock_conf = MagicMock()
         mock_conf.path = "default.json"
         mock_conf.encoding = "utf-8"

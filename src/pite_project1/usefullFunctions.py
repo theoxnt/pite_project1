@@ -3,7 +3,7 @@ from pathlib import Path
 from src.pite_project1.io_ import dump_json
 
 
-def _coerce_value(value) -> float:
+def _coerce_value(value: str) -> float:
     """
     Convert the input value to a float or integer, returning 0 for invalid inputs.
 
@@ -22,7 +22,7 @@ def _coerce_value(value) -> float:
         else: 
             return int(value)
     except (TypeError, ValueError):
-        return 0
+        return -1
 
 
 def filter_ok(records: Iterable[dict], *, threshold: float = 0) -> list[dict]:
@@ -45,7 +45,7 @@ def filter_ok(records: Iterable[dict], *, threshold: float = 0) -> list[dict]:
             if isinstance(val, str): 
                 val = _coerce_value(val)
             elif val is None: 
-                val = 0
+                val = -1
             if val >= threshold:
                 out.append({"status": "ok", "value": val})
     return out

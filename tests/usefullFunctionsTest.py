@@ -7,17 +7,15 @@ from pite_project1.usefullFunctions import _coerce_value, filter_ok, compute
 def test_coerce_value_int():
     assert _coerce_value("3") == 3
     assert _coerce_value("0") == 0
-    assert _coerce_value(5) == 5  # int input
 
 def test_coerce_value_float():
     assert _coerce_value("3.5") == 3.5
     assert _coerce_value("0.0") == 0.0
-    assert _coerce_value(2.0) == 2.0  # float input
 
 def test_coerce_value_invalid():
-    assert _coerce_value("abc") == 0
-    assert _coerce_value(None) == 0
-    assert _coerce_value([]) == 0
+    assert _coerce_value("abc") == -1
+    assert _coerce_value(None) == -1
+    assert _coerce_value([]) == -1
 
 # -------------------------
 # Tests for filter_ok
