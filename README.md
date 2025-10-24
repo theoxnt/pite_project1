@@ -80,5 +80,34 @@ python -m pytest -v tests/usefullFunctionsTest.py
 ## License
 This project uses the MIT License
 
+## How to use this project as a package 
+
+In your code : 
+To import the core and io_ modules :
+```bash
+from pite_project1 import * 
+```
+
+To import and use the core module:
+```bash
+from pite_project1 import core
+...
+core.main()
+```
+Or you can use a shortcut :
+```bash
+from pite_project1 import main
+...
+main()
+```
+
+To import and use the io_ module :
+```bash
+from pite_project1 import io_
+...
+io_.load_json(path)
+io_.dump_json(path, records)
+io_.load_config(path)
+```
 
 
