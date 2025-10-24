@@ -16,7 +16,7 @@ with SSH : git clone git@github.com:theoxnt/pite_project1.git<br>
 Create a new virtual environment, activate it and install the dependencies 
 ```bash
 python -m venv venv
-source venv/bin/activate
+source venv/Scripts/activate
 pip install -r requirements.txt
 ```
 Run the code
